@@ -19,6 +19,7 @@ public class MyWorld extends World
     
     public String[][] wordStorage = new String[7][5];
 
+    private String targetWord = "BREAD";
     private int counter = 0;   
     public int attempt = 0; 
     private String key;
@@ -41,6 +42,8 @@ public class MyWorld extends World
         word.add("");
         
         
+        
+        
     }
     
     public void act(){
@@ -48,6 +51,10 @@ public class MyWorld extends World
         lose();
         //showText(""+attempt, 200, 200);
         //showText(key, 200, 300);
+        
+        
+        
+        
         for(int i=0; i<5; i++){
             showText(word.get(i), 100 + i*50, (attempt/30 +1) * 50);
         }
@@ -177,7 +184,7 @@ public class MyWorld extends World
             for(String x:word){
                 s += x; 
             }
-            if(s.equals("BREAD")){
+            if(s.equals(targetWord)){
                 Greenfoot.stop();
             }
             
