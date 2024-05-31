@@ -26,6 +26,8 @@ public class Square extends Actor
             for(int j=0; j<5; j++){
                 w.showText(w.wordStorage[w.attempt/30][j], 100 + j*50, (w.attempt/30 + 1) * 50);
             }
+            
+            
 
         }
     }
