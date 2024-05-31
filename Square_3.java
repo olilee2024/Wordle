@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Square_3 extends Actor
+public class Square_3 extends Square
 {
     /**
      * Act - do whatever the Square_3 wants to do. This method is called whenever
