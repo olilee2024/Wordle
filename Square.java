@@ -14,6 +14,24 @@ public class Square extends Actor
      */
     public void act()
     {
-        
+        MyWorld w = (MyWorld) getWorld();
+     
+        if("enter".equals(w.getKey())){
+            //setImage("GreenSquare.png"); 
+            
+            //make a set method in world to avoid calling instance variable
+            w.attempt++;
+            
+            
+            for(int j=0; j<5; j++){
+                w.showText(w.wordStorage[w.attempt/30][j], 100 + j*50, (w.attempt/30 + 1) * 50);
+            }
+            
+            
+            
+
+        }
     }
+    
+    
 }

@@ -15,5 +15,6 @@ public class Square_6 extends Square
     public void act()
     {
         // Add your action code here.
+        super.act(); 
     }
 }
