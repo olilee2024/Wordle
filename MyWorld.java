@@ -20,7 +20,7 @@ public class MyWorld extends World
     
     public String[][] wordStorage = new String[7][5];
 
-    private String targetWord = "BREAD";
+    private String targetWord = "JUMBO";
     private int counter = 0;   
     public int attempt = 0; 
     private String key;
