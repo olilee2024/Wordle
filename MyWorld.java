@@ -16,12 +16,12 @@ public class MyWorld extends World
      * 
      */
     
-    private ArrayList<String> word = new ArrayList<String>();
+    public ArrayList<String> word = new ArrayList<String>();
     
     public String[][] wordStorage = new String[7][5];
 
     private String targetWord = "JUMBO";
-    private int counter = 0;   
+    public int counter = 0;   
     public int attempt = 0; 
     private String key;
     private List<Actor> squares = new ArrayList<Actor>();
@@ -39,6 +39,40 @@ public class MyWorld extends World
             addObject(new Square_6(), 100+col, 300);
         }
         
+        addObject(new Q(),61, 372);
+        addObject(new W(),92, 372);
+        addObject(new E(),123, 372);
+        addObject(new R(),154, 372);
+        addObject(new T(),185, 372);
+        addObject(new Y(),216, 372);
+        addObject(new U(),247, 372);
+        addObject(new I(),278, 372);
+        addObject(new O(),309, 372);
+        addObject(new P(),340, 372);
+        
+        addObject(new A(),80, 420);
+        addObject(new S(),110, 420);
+        addObject(new D(),140, 420);
+        addObject(new F(),170, 420);
+        addObject(new G(),200, 420);
+        addObject(new H(),230, 420);
+        addObject(new J(),260, 420);
+        addObject(new K(),290, 420);
+        addObject(new L(),320, 420);
+        
+        addObject(new Enter(),70, 468);
+        addObject(new Z(),110, 468);
+        addObject(new X(),140, 468);
+        addObject(new C(),170, 468);
+        addObject(new V(),200, 468);
+        addObject(new B(),230, 468);
+        addObject(new N(),260, 468);
+        addObject(new M(),290, 468);
+        addObject(new Delete(),330, 468);
+
+            
+            
+            
         word.add("");
         word.add("");
         word.add("");
@@ -176,11 +210,19 @@ public class MyWorld extends World
             }
         }
         if("backspace".equals(key) && counter != 0){
-                word.set(counter-1, "");
-                counter--;
+            delete();  
         }
         if("enter".equals(key) && getCounter() ==5){
-            for(int i=0; i<wordStorage[0].length; i++){
+            enter();
+        }
+    }
+    
+    public void delete(){
+        word.set(counter-1, "");
+        counter--;
+    }
+    public void enter(){
+        for(int i=0; i<wordStorage[0].length; i++){
                 wordStorage[attempt/30][i] = word.get(i);
             }
             
@@ -197,9 +239,7 @@ public class MyWorld extends World
             word.set(4, "");
             
             counter = 0;
-        }
     }
-    
     //makes boxes change color after each attempt
     private void changeColor(){
             if(attempt ==0){
