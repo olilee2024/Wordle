@@ -25,6 +25,8 @@ public class MyWorld extends World
     public int attempt = 0; 
     private String key;
     private List<Actor> squares = new ArrayList<Actor>();
+    
+    public Enter a = new Enter();
     public MyWorld()
     {    
         // Create a new world with .... cells with a cell size of 1x1 pixels.
@@ -60,7 +62,7 @@ public class MyWorld extends World
         addObject(new K(),290, 420);
         addObject(new L(),320, 420);
         
-        addObject(new Enter(),70, 468);
+        addObject(a,70, 468);
         addObject(new Z(),110, 468);
         addObject(new X(),140, 468);
         addObject(new C(),170, 468);
@@ -87,14 +89,11 @@ public class MyWorld extends World
     public void act(){
         keyStuff();
         lose();
-        //showText(""+attempt, 200, 200);
-        //showText(key, 200, 300);
-        
         
         
         
         for(int i=0; i<5; i++){
-            showText(word.get(i), 100 + i*50, (attempt/30 +1) * 50);
+            showText(word.get(i), 100 + i*50, (attempt +1) * 50);
         }
         
         
@@ -212,7 +211,7 @@ public class MyWorld extends World
         if("backspace".equals(key) && counter != 0){
             delete();  
         }
-        if("enter".equals(key) && getCounter() ==5){
+        if(("enter".equals(key)|| Greenfoot.mouseClicked(a)) && getCounter() ==5){
             enter();
         }
     }
@@ -223,22 +222,24 @@ public class MyWorld extends World
     }
     public void enter(){
         for(int i=0; i<wordStorage[0].length; i++){
-                wordStorage[attempt/30][i] = word.get(i);
-            }
+            wordStorage[attempt][i] = word.get(i);
+        }
             
-            win();
+        win();
+        
+        changeColor();
+        
             
-            //showText(""+attempt/30, 200, 200);
-            //showText(wordStorage[attempt/30].toString(), 200, 200);
-            changeColor();
-            
-            word.set(0, "");
-            word.set(1, "");
-            word.set(2, "");
-            word.set(3, "");
-            word.set(4, "");
-            
-            counter = 0;
+        
+        word.set(0, "");
+        word.set(1, "");
+        word.set(2, "");
+        word.set(3, "");
+        word.set(4, "");
+    
+        
+        
+        //attempt++ in square class
     }
     //makes boxes change color after each attempt
     private void changeColor(){
@@ -248,27 +249,27 @@ public class MyWorld extends World
                 }
                 
             }
-            else if (attempt/30 ==1){
+            else if (attempt==1){
                 for (Object obj : getObjects(Square_2.class)){ 
                     squares.add((Actor)obj);
                 }
             }
-            else if(attempt/30 ==2){
+            else if(attempt ==2){
                 for (Object obj : getObjects(Square_3.class)){ 
                     squares.add((Actor)obj);
                 }
             }
-            else if(attempt/30 ==3){
+            else if(attempt ==3){
                 for (Object obj : getObjects(Square_4.class)){ 
                     squares.add((Actor)obj);
                 }
             }
-            else if(attempt/30 ==4){
+            else if(attempt ==4){
                 for (Object obj : getObjects(Square_5.class)){ 
                     squares.add((Actor)obj);
                 }
             }
-            else if(attempt/30 ==5){
+            else if(attempt ==5){
                 for (Object obj : getObjects(Square_6.class)){ 
                     squares.add((Actor)obj);
                 }
@@ -299,7 +300,7 @@ public class MyWorld extends World
         }
     }
     private void lose(){
-        if (attempt/30 == 6){
+        if (attempt == 6){
             Greenfoot.stop();
         }
     }

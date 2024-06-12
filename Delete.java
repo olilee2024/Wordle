@@ -16,7 +16,7 @@ public class Delete extends Keyboard
     {
         MyWorld w = (MyWorld) getWorld();
         String key = Greenfoot.getKey();
-        if(w.getCounter() <= 5 ){
+        if(w.getCounter() <= 5 && w.getCounter() >0){
             if(Greenfoot.mouseClicked(this)){
                 w.delete();
             }

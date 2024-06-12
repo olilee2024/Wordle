@@ -14,12 +14,6 @@ public class Enter extends Keyboard
      */
     public void act()
     {
-        MyWorld w = (MyWorld) getWorld();
-        String key = Greenfoot.getKey();
-        if(w.getCounter() <= 5 ){
-            if(Greenfoot.mouseClicked(this)){
-                w.enter();
-            }
-        }
+        
     }
 }
