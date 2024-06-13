@@ -296,13 +296,19 @@ public class MyWorld extends World
             s += x; 
         }
         if(s.equals(targetWord)){
+            showText("You Win!", 200, 530);
             Greenfoot.stop();
         }
+        
+
     }
     private void lose(){
         if (attempt == 6){
             Greenfoot.stop();
+            showText("You Lose :( Word: JUMBO", 200, 530);
         }
+        
+       
     }
     
     public String getKey() {
